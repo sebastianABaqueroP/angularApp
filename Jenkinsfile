@@ -42,8 +42,7 @@ pipeline {
 						          echo '--------------------------------------------------------------------------------------------------------------------------'
 						          echo '-                                                  UNIT TEST STAGE                                                        -'
 						          echo '--------------------------------------------------------------------------------------------------------------------------'		
-                                  //sh "npm run test"
-                                  sh ('./node_modules/karma/bin/karma start karma.conf.js')
+                                  sh "npm run test"
                     }
                     catch (e) {
                         //echo 'Something failed, I should scontact the Jenkins admin!'
