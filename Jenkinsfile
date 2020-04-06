@@ -68,7 +68,7 @@ pipeline {
                                 
                                   echo 'Verificando Sonar Quality Gates'						
 
-							      SONAR_STATUS = sh (script: "curl -s -u fec4425f79ad241358bcb890756c8e77245892d6: http://localhost:9000/api/qualitygates/project_status?projectKey=node-test-app | jq '.projectStatus.status'", returnStdout: true).trim()
+							      SONAR_STATUS = sh (script: "curl -s -u fec4425f79ad241358bcb890756c8e77245892d6: http://localhost:9000/projects/qualitygates/project_status?projectKey=node-test-app | jq '.projectStatus.status'", returnStdout: true).trim()
 							      echo "$SONAR_STATUS"
 							      echo "¡Quality Gates Passed!"
 						}
