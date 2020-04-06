@@ -26,7 +26,7 @@ pipeline {
 						          echo '--------------------------------------------------------------------------------------------------------------------------'
 						          echo '-                                                  BUILD STAGE                                                        -'
 						          echo '--------------------------------------------------------------------------------------------------------------------------'		
-                                  sh 'npm install && npm run build'
+                                  sh 'npm install && npm run build --prod'
             }
                     catch (e) {
                         echo 'Something failed, I should scontact the Jenkins admin!'
@@ -45,7 +45,7 @@ pipeline {
                                   sh "npm run test"
                     }
                     catch (e) {
-                        echo 'Something failed, I should scontact the Jenkins admin!'
+                        //echo 'Something failed, I should scontact the Jenkins admin!'
                         throw e
                     }    
                 }
