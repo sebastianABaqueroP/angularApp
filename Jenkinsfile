@@ -62,7 +62,7 @@ pipeline {
 						          echo '--------------------------------------------------------------------------------------------------------------------------'
 						          echo '-                                                  SONAR TEST STAGE                                                        -'
 						          echo '--------------------------------------------------------------------------------------------------------------------------'		
-                                  sh 'sonar-scanner'
+                                  sh 'sonar-scanner -Dsonar.projectKey=node-test-app -Dsonar.sources=. -Dsonar.host.url=http://localhost:9000 -Dsonar.login=fec4425f79ad241358bcb890756c8e77245892d6'
                     }
                     catch (e) {
                         echo 'Something failed, I should scontact the Jenkins admin!'
