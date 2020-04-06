@@ -1,7 +1,10 @@
   
 pipeline {
     agent any
-    tools { nodejs "node"}  
+    tools { 
+        nodejs "node"
+        sonarqube "sonarqube"
+    }  
     stages {
            stage('Checkout') {
             steps{
