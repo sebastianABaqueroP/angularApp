@@ -61,20 +61,21 @@ pipeline {
 						          echo '--------------------------------------------------------------------------------------------------------------------------'
 						          echo '-                                                  SONAR TEST STAGE                                                        -'
 						          echo '--------------------------------------------------------------------------------------------------------------------------'		
+                                  sh 'env'
                                   sh 'sonar-scanner -Dsonar.projectKey=node-test-app -Dsonar.sources=src/app -Dsonar.host.url=http://localhost:9000 -Dsonar.login=fec4425f79ad241358bcb890756c8e77245892d6'
                                 
                                   echo 'Verificando Sonar Quality Gates'						
 
-							      //SONAR_STATUS = sh (script: "curl -s -u fec4425f79ad241358bcb890756c8e77245892d6: http://localhost:9000/projects/qualitygates/project_status?projectKey=node-test-app | jq '.projectStatus.status'", returnStdout: true).trim()
-							      //echo "$SONAR_STATUS"
-							      //echo "¡Quality Gates Passed!"
-						//}
-						//script{
-						//	if (SONAR_STATUS != '"OK"'){
-						//		echo "¡¡Quality Gates No Passed!!"
-						//		sh 'exit 1'
-						//	}
-						//}
+							      SONAR_STATUS = sh (script: "curl -s -u fec4425f79ad241358bcb890756c8e77245892d6: http://localhost:9000/projects/qualitygates/project_status?projectKey=node-test-app | jq '.projectStatus.status'", returnStdout: true).trim()
+							      echo "$SONAR_STATUS"
+							      echo "¡Quality Gates Passed!"
+						}
+						script{
+							if (SONAR_STATUS != '"OK"'){
+								echo "¡¡Quality Gates No Passed!!"
+								sh 'exit 1'
+							}
+						}
                     }
                     catch (e) {
                         echo 'Something failed, I should scontact the Jenkins admin!'
