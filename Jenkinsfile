@@ -26,7 +26,7 @@ pipeline {
 						          echo '--------------------------------------------------------------------------------------------------------------------------'
 						          echo '-                                                  BUILD STAGE                                                        -'
 						          echo '--------------------------------------------------------------------------------------------------------------------------'		
-                                  sh 'npm install && npm install -g @angular/cli & ng build --prod'
+                                  sh 'npm install && npm run build'
             }
                     catch (e) {
                         echo 'Something failed, I should scontact the Jenkins admin!'
