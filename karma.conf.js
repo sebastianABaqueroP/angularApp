@@ -27,15 +27,16 @@ module.exports = function (config) {
     autoWatch: true,
     browsers: ['ChromeHeadlessNoSandbox'],
     customLaunchers: {
-        ChromeHeadlessNoSandbox: {
-            base: 'ChromeHeadless',
-            flags: [
-                '--no-sandbox', 
-                '--disable-gpu',
-                '--disable-web-security'
-            ]
-        }
+      ChromeHeadlessNoSandbox: {
+        base: 'ChromeHeadless',
+        flags: [
+          '--no-sandbox',
+          '--disable-gpu',
+          '--disable-web-security'
+        ]
+      }
     },
+    captureTimeout: 60000,
     singleRun: false,
     restartOnFileChange: true
   });
