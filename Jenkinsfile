@@ -43,7 +43,7 @@ pipeline {
 						          echo '-                                                  UNIT TEST STAGE                                                        -'
 						          echo '--------------------------------------------------------------------------------------------------------------------------'		
                                   //sh "npm run test"
-                                  sh 'ng test --progress false --watch false'
+                                  sh 'npm run test --progress false --watch false'
                     }
                     catch (e) {
                         //echo 'Something failed, I should scontact the Jenkins admin!'
