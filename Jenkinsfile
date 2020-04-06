@@ -61,7 +61,7 @@ pipeline {
 						          echo '--------------------------------------------------------------------------------------------------------------------------'
 						          echo '-                                                  SONAR TEST STAGE                                                        -'
 						          echo '--------------------------------------------------------------------------------------------------------------------------'		
-                                  sh 'sonar-scanner -Dsonar.projectKey=node-test-app -Dsonar.sources=. -Dsonar.host.url=http://localhost:9000 -Dsonar.login=fec4425f79ad241358bcb890756c8e77245892d6'
+                                  sh 'sonar-scanner -Dsonar.projectKey=node-test-app -Dsonar.sources=src/app -Dsonar.host.url=http://localhost:9000 -Dsonar.login=fec4425f79ad241358bcb890756c8e77245892d6'
                                 
                                   echo 'Verificando Sonar Quality Gates'						
 
