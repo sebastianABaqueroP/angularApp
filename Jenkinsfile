@@ -3,7 +3,6 @@ pipeline {
     agent any
     tools { 
         nodejs "node"
-        sonarqube "sonarqube"
     }  
     stages {
            stage('Checkout') {
