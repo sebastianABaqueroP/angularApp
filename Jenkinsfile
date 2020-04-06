@@ -55,16 +55,13 @@ pipeline {
             }
         }
         stage ('Sonar Test') {
-                environment {
-        scannerHome = tool 'SonarQubeScanner'
-    }
           steps {
                                            script{
                     try {
 						          echo '--------------------------------------------------------------------------------------------------------------------------'
 						          echo '-                                                  SONAR TEST STAGE                                                        -'
 						          echo '--------------------------------------------------------------------------------------------------------------------------'		
-                                  sh '${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=node-test-app -Dsonar.sources=. -Dsonar.host.url=http://localhost:9000 -Dsonar.login=fec4425f79ad241358bcb890756c8e77245892d6'
+                                  sh 'sonar-scanner -Dsonar.projectKey=node-test-app -Dsonar.sources=. -Dsonar.host.url=http://localhost:9000 -Dsonar.login=fec4425f79ad241358bcb890756c8e77245892d6'
                                 
                                   echo 'Verificando Sonar Quality Gates'						
 
